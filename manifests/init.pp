@@ -10,7 +10,7 @@ class mcafee-epo (
   $agent_service_enable   = true,
   $agent_service_provider = 'init',
   $nails_service_name     = 'nails',
-  $nails_service_ensure   = 'running,
+  $nails_service_ensure   = 'running',
   $nails_service_enable   = true,
   $nails_service_provider = 'init',
 ) {
