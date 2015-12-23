@@ -1,10 +1,10 @@
 {
   "author": "Eric B",
   "source": "https://github.com/Ramorous/puppet-mcafee_epo",
-  "summary": "Allows management of McAfee EPO Agent Install/Service and Nails Service",
+  "summary": "Allows management of McAfee EPO Agent Install/Service",
   "dependencies": [],
   "license": "Apache-2.0",
-  "name": "Ramorous-mcafee_epo",
+  "name": "Ramorous-mcafee_epo_agent",
   "version": "0.0.1",
   "operatingsystem_support": [
     {

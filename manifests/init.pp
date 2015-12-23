@@ -1,6 +1,6 @@
-# Class: mcafee_epo
+# Class: mcafee_epo_agent
 #
-class mcafee_epo (
+class mcafee_epo_agent (
   $class_enabled          = true,
   $agent_install_type     = 'script',
   $agent_install_script   = 'puppet://moudules/files/install.sh',
@@ -88,4 +88,4 @@ class mcafee_epo (
     notice('System is not Linux based.')
   }
 }
-include mcafee_epo
+include mcafee_epo_agent
