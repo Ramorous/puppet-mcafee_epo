@@ -1,4 +1,4 @@
-# mcafee_epo
+# mcafee_epo_agent
 
 #### Table of Contents
 
