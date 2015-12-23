@@ -126,4 +126,3 @@ class mcafee_epo_agent (
     notice('System is not Linux based.')
   }
 }
-include mcafee_epo_agent
