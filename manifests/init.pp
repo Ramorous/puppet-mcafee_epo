@@ -1,10 +1,48 @@
 # Class: mcafee_epo_agent
 #
+# Provides puppet control module for McAfee EPO Agent
+#
+# === Parameters
+#
+# [class_enabled]
+#   true/false
+#   This will enable this module for the given host
+#   This is helpful for Puppet ENC and Foreman/Satellite
+#
+# [agent_install_type]
+#   script/repository
+#   Only two options availble for use. Whether EPO agent is found in 
+#   a script or a repository
+#
+# [agent_install_options]
+#   String
+#   Installation options for script being run.
+#
+# [agent_service_name]
+#   String
+#   Name of the Agent Service
+#
+# [agent_service_ensure]
+#   String
+#   Ensure the service is running, absent, etc... (Recommend Running)
+#
+# [agent_service_enable]
+#   String
+#   Have the service startup at boot. (Recommend true)
+#
+# [agent_service_provider]
+#   String
+#   Service provider for the agent. (Recommend init, unless Debian)
+#
+# [agent_service_script]
+#   String
+#   Location of "init" script for Agent. (Debian would be different)
+#
 class mcafee_epo_agent (
   $class_enabled          = true,
   $agent_install_type     = 'script',
   $agent_install_script   = 'puppet://moudules/files/install.sh',
-  $agent_install_options  = '-u',
+  $agent_install_options  = undef,
   $agent_service_name     = 'cma',
   $agent_service_ensure   = 'running',
   $agent_service_enable   = true,
