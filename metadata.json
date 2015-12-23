@@ -39,5 +39,8 @@
   "project_page": "https://github.com/Ramorous/puppet-mcafee_epo",
   "issues_url": "https://github.com/Ramorous/puppet-mcafee_epo/issues",
   "requirements": [],
-  "tags": []
+  "tags": [],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.0.0 < 6.0.0"}
+  ]
 }
