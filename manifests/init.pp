@@ -41,7 +41,7 @@
 class mcafee_epo_agent (
   $class_enabled          = true,
   $agent_install_type     = 'script',
-  $agent_install_script   = 'puppet://moudules/files/install.sh',
+  $agent_install_script   = 'puppet:///modules/files/install.sh',
   $agent_install_options  = undef,
   $agent_service_name     = 'cma',
   $agent_service_ensure   = 'running',
@@ -93,25 +93,28 @@ class mcafee_epo_agent (
         'script': {
           $agent_install_script_real = '/tmp/McAfee-Install.sh'
           file{ $agent_install_script:
+            ensure => 'present',
             path   => $agent_install_script_real,
-            ensure => present,
             source => $agent_install_script,
             mode   => '0700',
             owner  => 'root',
             group  => 'root',
           }
           exec{ $agent_install_script:
-            command => "$agent_install_script_real $agent_install_options",
-            onlyif  => "/usr/bin/test ! -f $agent_service_script",
+            command => "${agent_install_script_real} ${agent_install_options}",
+            onlyif  => "/usr/bin/test ! -f ${agent_service_script}",
             user    => root,
             path    => ['/usr/bin'],
           }
         }
         'repository': {
           package{ $agent_service_name:
-            name => $agent_service_name,
             ensure => 'present',
+            name   => $agent_service_name,
           }
+        }
+        default: {
+          fail( 'agent_install_type had a problem' )
         }
       }
       service{ $agent_service_name:
