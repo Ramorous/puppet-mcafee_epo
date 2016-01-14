@@ -55,7 +55,7 @@ This module will allow management and installation of the McAfee EPO Agent. Once
 class { 'mcafee_epo_agent':
     class_enabled          => true,
     agent_install_type     => 'script',
-    agent_install_option   => undef,
+    agent_install_options  => undef,
     agent_service_name     => 'cma',
     agent_service_ensure   => 'running',
     agent_service_enable   => true,
