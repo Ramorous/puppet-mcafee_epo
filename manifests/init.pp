@@ -93,12 +93,13 @@ class mcafee_epo_agent (
         'script': {
           $agent_install_script_real = '/tmp/McAfee-Install.sh'
           file{ $agent_install_script:
-            ensure => 'present',
-            path   => $agent_install_script_real,
-            source => $agent_install_script,
-            mode   => '0700',
-            owner  => 'root',
-            group  => 'root',
+            ensure    => 'present',
+            path      => $agent_install_script_real,
+            source    => $agent_install_script,
+            mode      => '0700',
+            owner     => 'root',
+            group     => 'root',
+            show_diff => false,
           }
           exec{ $agent_install_script:
             command => "${agent_install_script_real} ${agent_install_options}",
